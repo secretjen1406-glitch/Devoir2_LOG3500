@@ -1,0 +1,165 @@
+/* --- Variables de Design & Thème --- */
+:root {
+--primary-color: #2563eb;
+--bg-color: #f8fafc;
+--card-bg: #ffffff;
+--text-color: #1e293b;
+--error-color: #dc2626;
+--border-radius: 12px;
+}
+
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+background-color: var(--bg-color);
+color: var(--text-color);
+line-height: 1.6;
+padding: 20px;
+}
+
+header, footer {
+text-align: center;
+padding: 1.5rem;
+}
+
+/* --- Layout avec Flexbox --- */
+main {
+display: flex;
+flex-direction: column;
+gap: 2rem;
+max-width: 600px;
+margin: 0 auto;
+background: var(--card-bg);
+padding: 2rem;
+border-radius: var(--border-radius);
+box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+/* --- Formulaire --- */
+#weather-form {
+display: flex;
+flex-direction: column;
+gap: 1rem;
+}
+
+.input-group {
+display: flex;
+flex-direction: column;
+gap: 0.5rem;
+}
+
+input[type="text"] {
+padding: 0.75rem;
+border: 2px solid #cbd5e1;
+border-radius: 8px;
+font-size: 1rem;
+transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+outline: none;
+border-color: var(--primary-color);
+}
+
+/* Style d'erreur Input */
+input[aria-invalid="true"] {
+border-color: var(--error-color);
+}
+
+.error-message, .api-error {
+color: var(--error-color);
+font-size: 0.875rem;
+font-weight: 600;
+}
+
+button {
+background-color: var(--primary-color);
+color: white;
+padding: 0.75rem;
+border: none;
+border-radius: 8px;
+font-size: 1rem;
+font-weight: bold;
+cursor: pointer;
+transition: background-color 0.2s;
+}
+
+button:hover {
+background-color: #1d4ed8;
+}
+
+/* --- Loader Spinner --- */
+.loader {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 0.5rem;
+margin: 1rem 0;
+}
+
+.spinner {
+width: 40px;
+height: 40px;
+border: 4px solid #e2e8f0;
+border-top: 4px solid var(--primary-color);
+border-radius: 50%;
+animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+
+/* --- Carte Météo --- */
+.weather-card {
+background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+padding: 1.5rem;
+border-radius: var(--border-radius);
+text-align: center;
+}
+
+.weather-main {
+margin: 1.5rem 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 0.5rem;
+}
+
+.temp-display {
+font-size: 3rem;
+font-weight: bold;
+}
+
+.status-badge {
+background: white;
+padding: 0.25rem 0.75rem;
+border-radius: 20px;
+font-weight: 600;
+}
+
+/* --- États d'affichage --- */
+.hidden {
+display: none !important;
+}
+
+/* --- Responsive Design (Tablettes et Ordinateurs) --- */
+@media (min-width: 480px) {
+#weather-form {
+flex-direction: row;
+align-items: flex-end;
+}
+.input-group {
+flex-grow: 1;
+}
+button {
+height: 46px; /* S'aligne parfaitement avec l'input */
+}
+}
+
