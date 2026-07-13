@@ -126,5 +126,6 @@ apiError.classList.remove('hidden');
 } finally {
 // L'indicateur de chargement disparaît au moment de l'injection ou de l'erreur
 loader.classList.add('hidden');
+/* Validation et structure responsive correcte*/
 }
 }
